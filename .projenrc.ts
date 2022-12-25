@@ -14,7 +14,7 @@ const project = new cdk.JsiiProject({
   autoApproveOptions: {
     secret: 'PROJEN_GITHUB_TOKEN',
   },
-  releaseToNpm: true,
+  releaseToNpm: false,
   npmAccess: NpmAccess.PUBLIC,
   peerDeps: ['projen'],
   sampleCode: false,
