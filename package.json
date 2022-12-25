@@ -1,8 +1,9 @@
 {
-  "name": "projen-remix-project",
+  "name": "@rogerchi/projen-remix-project",
+  "description": "Projen external project type for a Remix (https://remix.run) application",
   "repository": {
     "type": "git",
-    "url": "https://github.com/user/projen-remix-project.git"
+    "url": "https://github.com/rogerchi/projen-remix-project.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -29,8 +30,8 @@
     "projen": "npx projen"
   },
   "author": {
-    "name": "user",
-    "email": "user@domain.com",
+    "name": "Roger Chi",
+    "email": "roger@rogerchi.com",
     "organization": false
   },
   "devDependencies": {
@@ -56,8 +57,14 @@
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   },
+  "peerDependencies": {
+    "projen": "^0.65.72"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [
@@ -100,7 +107,7 @@
     }
   },
   "types": "lib/index.d.ts",
-  "stability": "stable",
+  "stability": "experimental",
   "jsii": {
     "outdir": "dist",
     "targets": {},
