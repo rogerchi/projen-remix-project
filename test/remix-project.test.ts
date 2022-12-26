@@ -60,7 +60,7 @@ describe('deploy', () => {
       name: 'deploy',
       steps: [
         {
-          exec: 'npm run remix:build && cdk deploy --outputs-file cdk-outputs.json hello-dev*',
+          exec: 'npm run remix:build && cdk deploy --outputs-file cdk-outputs.json remix-site-dev',
         },
       ],
     });
