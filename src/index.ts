@@ -250,6 +250,9 @@ class SampleCode extends Component {
     new SampleFile(this.appProject, 'remix.config.js', {
       sourcePath: path.join(__dirname, '..', 'sample-files', 'remix.config.js'),
     });
+    new SampleDir(this.appProject, 'src', {
+      sourceDir: path.join(__dirname, '..', 'sample-files', 'src'),
+    });
     if (this.appProject.tailwind) {
       new SampleDir(this.appProject, `${this.appProject.remixDir}/styles`, {
         sourceDir: path.join(__dirname, '..', 'sample-files', 'styles'),
