@@ -58,6 +58,20 @@ export interface RemixAwsCdkTypeScriptProjectOptions
   readonly remixDir?: string;
 }
 
+function semverCompare(a: string, b: string) {
+  var pa = a.split('.');
+  var pb = b.split('.');
+  for (var i = 0; i < 3; i++) {
+    var na = Number(pa[i]);
+    var nb = Number(pb[i]);
+    if (na > nb) return 1;
+    if (nb > na) return -1;
+    if (!isNaN(na) && isNaN(nb)) return 1;
+    if (isNaN(na) && !isNaN(nb)) return -1;
+  }
+  return 0;
+}
+
 export class RemixAwsCdkTypeScriptProject extends awscdk.AwsCdkTypeScriptApp {
   public readonly remixDir: string;
   public readonly tailwind?: boolean;
@@ -73,6 +87,8 @@ export class RemixAwsCdkTypeScriptProject extends awscdk.AwsCdkTypeScriptApp {
       remixDir = 'remix',
       ...cdkOptions
     } = options;
+
+    const minCdkVersion = '2.24.0';
 
     const remixProjectDeps = [
       `@remix-run/node@${remixVersion}`,
@@ -160,6 +176,9 @@ export class RemixAwsCdkTypeScriptProject extends awscdk.AwsCdkTypeScriptApp {
         ...(cdkOptions.watchExcludes ?? []),
       ],
       sampleCode: false,
+      cdkVersion: [minCdkVersion, cdkOptions.cdkVersion]
+        .sort(semverCompare)
+        .pop()!,
     });
 
     this.remixDir = remixDir;
