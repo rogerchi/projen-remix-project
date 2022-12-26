@@ -11,7 +11,7 @@ export class RemixSite extends Stack {
     scope: Construct,
     id: string,
     {
-      remixPath = path.join(__dirname, '../../../remix'),
+      remixPath = path.join(__dirname, '../../remix'),
       cognitoAuth,
       customDomain,
       ddbSessions,

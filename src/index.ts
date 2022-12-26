@@ -234,22 +234,22 @@ export class RemixAwsCdkTypeScriptProject extends awscdk.AwsCdkTypeScriptApp {
 
     this.removeTask('deploy');
     this.addTask('deploy', {
-      exec: `npm run remix:build && cdk deploy --outputs-file cdk-outputs.json ${this.name}-dev*`,
+      exec: 'npm run remix:build && cdk deploy --outputs-file cdk-outputs.json remix-site-dev',
     });
 
     this.removeTask('watch');
     this.addTask('watch', {
-      exec: `cdk watch ${this.name}-dev*`,
+      exec: 'cdk watch remix-site-dev',
     });
 
     this.removeTask('hotswap');
     this.addTask('hotswap', {
-      exec: `cdk deploy --hotswap ${this.name}-dev*`,
+      exec: 'cdk deploy --hotswap remix-site-dev',
     });
 
     this.removeTask('build-hotswap');
     this.addTask('build-hotswap', {
-      exec: `npm run remix:build && cdk hotswap ${this.name}-dev*`,
+      exec: 'npm run remix:build && cdk hotswap remix-site-dev',
     });
   }
 }
