@@ -17,6 +17,8 @@ const project = new cdk.JsiiProject({
   releaseToNpm: false,
   npmAccess: NpmAccess.PUBLIC,
   peerDeps: ['projen'],
+  peerDependencyOptions: { pinnedDevDependency: true },
+  projenDevDependency: true,
   sampleCode: false,
 
   // deps: [],                /* Runtime dependencies of this module. */
