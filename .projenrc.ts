@@ -18,6 +18,7 @@ const project = new cdk.JsiiProject({
   npmAccess: NpmAccess.PUBLIC,
   peerDeps: ['projen'],
   peerDependencyOptions: { pinnedDevDependency: true },
+  devDeps: ['@rogerchi/cdk-remix-app', 'aws-cdk-lib', 'constructs'],
   projenDevDependency: true,
   sampleCode: false,
 
@@ -26,4 +27,5 @@ const project = new cdk.JsiiProject({
   // devDeps: [],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
 });
+project.tsconfigDev?.addInclude('sample-files/**/*.ts');
 project.synth();
